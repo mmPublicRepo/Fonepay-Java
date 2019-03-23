@@ -15,4 +15,4 @@ Example:
 
         String fonepayPaymentRequestUrl = FonepayService.generateFonepayUrlForPaymentRequest(fonepayPaymentRequest);
         
-Check https://github.com/fonepay/Fonepay-Spring-Boot-Integration-Sample for exaple on how to used this libray.
+Check https://github.com/fonepay/Fonepay-Spring-Boot-Integration-Sample for example on how to used this libray.
