@@ -13,12 +13,12 @@ https://docs.google.com/document/d/e/2PACX-1vQoPiR4invPzLumeixLndjkVW8MgYsQw2TZG
     <dependency>
       <groupId>com.fonepay</groupId>
       <artifactId>payment</artifactId>
-      <version>0.3</version>
+      <version>0.9</version>
     </dependency>
 
 ### Gradle
 
-    implementation 'com.fonepay:payment:0.3'
+    implementation 'com.fonepay:payment:0.9'
 
 Check https://github.com/fonepay/Fonepay-Spring-Boot-Integration-Sample for example on how to used this libray.
 
