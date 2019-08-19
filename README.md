@@ -24,15 +24,16 @@ Check https://github.com/fonepay/Fonepay-Spring-Boot-Integration-Sample for exam
 
 ### Example to make payment request:
 
-    FonepayPaymentRequest fonepayPaymentRequest = FonepayPaymentRequestBuilder.aFonepayPaymentRequest()
-                .merchantCodePid(paymentRequest.getMerchantCodePid())
-                .productNumberPrn(paymentRequest.getProductNumberPrn())
-                .amountAmt(paymentRequest.getAmountAmt())
-                .remarks1(paymentRequest.getRemarks1())
-                .fonepayUrl(fonepayPaymentUrl)
-                .merchantWebsiteReturnUrl(merchantPaymentSuccessReturnUrl)
-                .merchantSecretKey(merchantSecretKey)
-                .build();
+    FonepayPaymentRequest fonepayPaymentRequest =
+                FonepayPaymentRequestBuilder.aFonepayPaymentRequest()
+                        .withMerchantCodePid(paymentRequest.getMerchantCodePid())
+                        .withProductNumberPrn(paymentRequest.getProductNumberPrn())
+                        .withAmountAmt(paymentRequest.getAmountAmt())
+                        .withRemarks1(paymentRequest.getRemarks1())
+                        .withFonepayUrl(fonepayPaymentUrl)
+                        .withMerchantWebsiteReturnUrl(merchantPaymentSuccessReturnUrl)
+                        .withMerchantSecretKey(merchantSecretKey)
+                        .build();
 
         String fonepayPaymentRequestUrl = FonepayService.generateFonepayUrlForPaymentRequest(fonepayPaymentRequest);
          
@@ -41,17 +42,18 @@ Note: Redirect user to fonepayPaymentRequestUrl.
 
 ### Example to verify payment request:
          
-         FonepayPaymentVerificationRequest fonepayPaymentVerification =
-                        FonepayPaymentVerificationRequestBuilder.aFonepayPaymentVerificationRequest()
-                                .withProductNumberPrn(productNumberPrn)
-                                .withMerchantCodePid(merchantCodePID)
-                                .withBillIdBid(billId)
-                                .withFonepayTraceIdUniqueUid(fonepayTraceIdUid)
-                                .withFonepayVerificationUrl(fonepayVerificationReturnUrl)
-                                .withMerchantRequestedAmountAmt(paymentRequest.getAmountAmt() + "")
-                                .withMerchantSecretKey(merchantSecretKey)
-                                .build();
-        
-         String fonepayUrlForPaymentVerification = FonepayService.generateFonepayUrlForPaymentVerificationRequest(fonepayPaymentVerification);
+            FonepayPaymentVerificationRequest fonepayPaymentVerification =
+                FonepayPaymentVerificationRequestBuilder.aFonepayPaymentVerificationRequest()
+                        .withProductNumberPrn(productNumberPrn)
+                        .withMerchantCodePid(merchantCodePID)
+                        .withBillIdBid(billId)
+                        .withFonepayTraceIdUniqueUid(fonepayTraceIdUid)
+                        .withFonepayVerificationUrl(fonepayPaymentUrl)
+                        .withMerchantRequestedAmountAmt(paymentRequest.getAmountAmt() + "")
+                        .withMerchantSecretKey(merchantSecretKey)
+                        .build();
+
+        String fonepayUrlForPaymentVerification = FonepayService.generateFonepayUrlForPaymentVerificationRequest(fonepayPaymentVerification);
+
 
 Note: Call fonepayUrlForPaymentVerification api url to verify payment.
